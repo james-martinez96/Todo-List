@@ -63,17 +63,17 @@ const TodoItem: React.FC<TodoItemProps> = ({
           onClick={() => onToggle(todo.id)}
           className={todo.completed ? "completed" : ""}
         >
-          <div className="cardContainer">
-            <h3 className="todoTitle">{todo.title}</h3>
+          <div className="card-container">
+            <h3 className="todo-title">{todo.title}</h3>
             <p>{todo.description}</p>
           </div>
         </span>
       )}
-      <div className="buttonContainer">
-        <button className="editButton" onClick={() => onEdit(todo.id)}>
+      <div className="button-container">
+        <button className="edit-button" onClick={() => onEdit(todo.id)}>
           Edit
         </button>
-        <button className="deleteButton" onClick={() => onDelete(todo.id)}>
+        <button className="delete-button" onClick={() => onDelete(todo.id)}>
           Delete
         </button>
       </div>
