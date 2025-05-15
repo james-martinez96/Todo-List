@@ -43,6 +43,7 @@ ul {
 }
 
 .Card-Grid {
+  display: grid;
   grid-template-columns: repeat(3, minmax(240px, 1fr));
   padding: 0;
 }
@@ -82,7 +83,7 @@ li input {
   color: white;
   background-color: transparent;
   outline: none;
-  border-color: 1px soliid #ccc;
+  border: 1px solid #ccc;
   font-size: 1.3rem;
 }
 
@@ -110,7 +111,7 @@ li button:hover {
   color: #da190b;
 }
 
-Form {
+form {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -118,7 +119,7 @@ Form {
   align-items: center;
 }
 
-Form input {
+form input {
   /* padding: 10px; */
   /* border: 1px solid #ddd; */
   /* border-radius: 5px; */
@@ -184,6 +185,11 @@ Form input {
 
 /* Media Queries */
 @media only screen and (max-width: 800px) {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
   /* Styles for screens up to 600px wide */
   .main-container {
@@ -206,6 +212,7 @@ Form input {
 
   .Card-Grid {
     /* Adjust grid layout for smaller screens */
+    display: grid;
     grid-template-columns: 1fr;
   }
 }
@@ -213,4 +220,9 @@ Form input {
 @media only screen and (min-width: 601px) and (max-width: 1200px) {
   /* Styles for screens between 601px and 1200px wide */
   /* Add your specific styles here */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 }
