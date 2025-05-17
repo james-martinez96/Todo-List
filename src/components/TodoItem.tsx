@@ -44,6 +44,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
       {editingTodo?.id === todo.id ? (
         <>
           <input
+            aria-label="Edit Title"
             type="text"
             value={editTitle}
             onChange={(e) => setEditTitle(e.currentTarget.value)}
@@ -51,6 +52,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
             onKeyDown={handleKeyDown}
           />
           <input
+            aria-label="Edit Description"
             type="text"
             value={editDescription}
             onChange={(e) => setEditDescription(e.currentTarget.value)}

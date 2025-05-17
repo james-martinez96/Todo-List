@@ -20,14 +20,18 @@ const TodoForm: React.FC<TodoFormProps> = ({
 }) => {
   return (
     <form className="Form">
+      {/* <label htmlFor="todo-title">Task Title</label> */}
       <input
+        aria-label="Task Title"
         className="input"
         type="text"
         placeholder="Title"
         value={title}
         onChange={(e) => onTitleChange(e.currentTarget.value)}
       />
+      {/* <label htmlFor="description">Task Description</label> */}
       <input
+        aria-label="Task Description"
         className="input"
         type="text"
         placeholder="Add todo item"
