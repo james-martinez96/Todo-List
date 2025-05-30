@@ -83,7 +83,7 @@ export const TodoList: React.FC = () => {
 
   return (
     <div className="main-container">
-      <h1 className="Main">Todo List</h1>
+      <h1 className="title">Todo List</h1>
       <ul className="Card-Grid">
         {todos.map((todo) => (
           <TodoItem 

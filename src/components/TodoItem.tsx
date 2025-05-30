@@ -40,10 +40,11 @@ const TodoItem: React.FC<TodoItemProps> = ({
   };
 
   return (
-    <li key={todo.id}>
+    <li className="Item" key={todo.id}>
       {editingTodo?.id === todo.id ? (
-        <>
+        <div className="todo-input-container">
           <input
+            className="title-input"
             aria-label="Edit Title"
             type="text"
             value={editTitle}
@@ -51,27 +52,29 @@ const TodoItem: React.FC<TodoItemProps> = ({
             // onBlur={handleBlur}
             onKeyDown={handleKeyDown}
           />
-          <input
+          <textarea
+            className="edit-input"
             aria-label="Edit Description"
-            type="text"
+            // type="text"
             value={editDescription}
             onChange={(e) => setEditDescription(e.currentTarget.value)}
             // onBlur={handleBlur}
             onKeyDown={handleKeyDown}
           />
-        </>
+        </div>
       ) : (
-        <span
+        <div
+          id="item-list"
           onClick={() => onToggle(todo.id)}
           className={todo.completed ? "completed" : ""}
         >
           <div className="card-container">
             <h3 className="todo-title">{todo.title}</h3>
-            <p>{todo.description}</p>
+            <p className="description">{todo.description}</p>
           </div>
-        </span>
+        </div>
       )}
-      <div className="button-container">
+      <div className="list-button-container">
         <button className="edit-button" onClick={() => onEdit(todo.id)}>
           Edit
         </button>

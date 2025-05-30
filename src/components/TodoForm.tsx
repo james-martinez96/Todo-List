@@ -38,7 +38,7 @@ const TodoForm: React.FC<TodoFormProps> = ({
         value={description}
         onChange={(e) => onDescriptionChange(e.currentTarget.value)}
       />
-      <div className="button-container">
+      <div className="form-button-container">
         <button className="add-button" type="button" onClick={onClick}>
           Add
         </button>
