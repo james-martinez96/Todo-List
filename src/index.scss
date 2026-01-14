@@ -330,7 +330,6 @@ body {
     opacity: 0.5;
 }
 
-/* Responsive Design */
 @media only screen and (max-width: 800px) {
     .main-container {
         padding: 10px;
@@ -378,7 +377,6 @@ body {
     }
 }
 
-/* Additional utility classes */
 .fade-in {
     animation: fadeIn 0.3s ease-in;
 }
