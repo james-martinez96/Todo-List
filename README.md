@@ -15,6 +15,7 @@ This is a simple Todo List application built with React and TypeScript.
 
 ```sh
 git clone https://github.com/yourusername/todolist.git
+```
 
 2. Install the dependencies:
 
