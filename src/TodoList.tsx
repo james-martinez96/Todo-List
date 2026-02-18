@@ -49,12 +49,13 @@ export const TodoList: React.FC = () => {
   };
 
   const onReset = () => {
-    localStorage.clear();
+    localStorage.removeItem("todos");
     setTodos([]);
   };
 
-  const onSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
+  const onSubmit = () => {
+    // event.preventDefault();
+    if (!title.trim() && !description.trim()) return;
     const newTodo: Item = {
       id: Date.now(),
       title: title,
@@ -97,12 +98,13 @@ export const TodoList: React.FC = () => {
           />
         ))}
       </ul>
+
       <TodoForm 
         title={title}
         description={description}
         onTitleChange={setTitle}
         onDescriptionChange={setDescription}
-        onClick={onSubmit}
+        onSubmit={onSubmit}
         onReset={onReset}
       />
     </div>

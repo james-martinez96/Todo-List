@@ -1,13 +1,13 @@
-// TodoForm.tsx
-import React from 'react';
+import React from 'react'
 
 interface TodoFormProps {
   title: string;
   description: string;
   onTitleChange: (value: string) => void;
   onDescriptionChange: (value: string) => void;
-  onClick: (event: React.FormEvent) => void;
+  onSubmit: () => void;
   onReset: () => void;
+
 }
 
 const TodoForm: React.FC<TodoFormProps> = ({
@@ -15,13 +15,19 @@ const TodoForm: React.FC<TodoFormProps> = ({
   description,
   onTitleChange,
   onDescriptionChange,
-  onClick,
+  onSubmit: onSubmit,
   onReset,
 }) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    onSubmit();
+  };
+
   return (
-    <form className="Form">
-      {/* <label htmlFor="todo-title">Task Title</label> */}
+    <form className="Form" onSubmit={handleSubmit}>
+      <label htmlFor="todo-title">Title</label>
       <input
+        id="todo-title"
         aria-label="Task Title"
         className="input"
         type="text"
@@ -29,8 +35,10 @@ const TodoForm: React.FC<TodoFormProps> = ({
         value={title}
         onChange={(e) => onTitleChange(e.currentTarget.value)}
       />
-      {/* <label htmlFor="description">Task Description</label> */}
+
+      <label htmlFor="description">Description</label>
       <input
+        id="description"
         aria-label="Task Description"
         className="input"
         type="text"
@@ -38,8 +46,9 @@ const TodoForm: React.FC<TodoFormProps> = ({
         value={description}
         onChange={(e) => onDescriptionChange(e.currentTarget.value)}
       />
-      <div className="form-button-container">
-        <button className="add-button" type="button" onClick={onClick}>
+
+      <div className="button-container">
+        <button className="add-button" type="submit" onClick={onSubmit}>
           Add
         </button>
         <button className="clear-button" type="button" onClick={onReset}>
