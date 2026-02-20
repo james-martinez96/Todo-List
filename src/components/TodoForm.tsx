@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 interface TodoFormProps {
   title: string;
@@ -18,15 +18,24 @@ const TodoForm: React.FC<TodoFormProps> = ({
   onSubmit: onSubmit,
   onReset,
 }) => {
+  const titleInputRef = useRef<HTMLInputElement>(null);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSubmit();
   };
 
+  useEffect(() => {
+    if (title === "" && description === "") {
+      titleInputRef.current?.focus();
+    }
+  }, [title, description]);
+
   return (
     <form className="Form" onSubmit={handleSubmit}>
       <label htmlFor="todo-title">Title</label>
       <input
+        ref={titleInputRef}
         id="todo-title"
         aria-label="Task Title"
         className="input"
