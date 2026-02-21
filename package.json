@@ -7,6 +7,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "format:check": "prettier --check 'src/**/*.{ts,tsx,js,jsx}'",
+    "format:write": "prettier --write 'src/**/*.{ts,tsx,js,jsx}'",
+    "validate": "npm run format:check && npm run lint",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -22,6 +25,8 @@
     "@typescript-eslint/parser": "^6.14.0",
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.55.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "typescript": "5.3",
